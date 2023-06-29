@@ -10,6 +10,13 @@ import Pagenotfound from "./pages/PageNotFound";
 import PrivateRoute from "./routes/Private";
 import Dashboard from "./pages/user/Dashboard";
 import ForgotPasssword from "./pages/Auth/ForgotPassword";
+import AdminDashboard from "./pages/Admin/AdminDashboard";
+import AdminRoute from "./routes/Admin";
+import CreateCategory from "./pages/Admin/CreateCategory";
+import Users from "./pages/Admin/users";
+import Orders from "./pages/user/Orders";
+import Profile from "./pages/user/Profile";
+import CreateProduct from "./pages/Admin/CreateProduct";
 
 function App() {
   return (
