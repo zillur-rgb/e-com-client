@@ -20,6 +20,7 @@ import CreateProduct from "./pages/Admin/CreateProduct";
 import Products from "./pages/Admin/Products";
 import UpdateProduct from "./pages/Admin/UpdateProducts";
 import AllProducts from "./pages/AllProducts";
+import Search from "./pages/Search";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/all-products" element={<AllProducts />} />
+        <Route path="/search" element={<Search />} />
         <Route path="/dashboard" element={<PrivateRoute />}>
           <Route path="user" element={<Dashboard />} />
           <Route path="user/orders" element={<Orders />} />
