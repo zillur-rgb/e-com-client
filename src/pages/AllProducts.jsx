@@ -118,7 +118,7 @@ const AllProducts = () => {
   return (
     <Layout title={"ALl Products - Best offers "}>
       <div className="container-fluid row mt-3">
-        <div className="col-md-2">
+        <div className="col-md-3">
           <h4 className="text-center">Filter By Category</h4>
           <div className="d-flex flex-column">
             {categories?.map((c) => (
@@ -151,14 +151,16 @@ const AllProducts = () => {
           </div>
         </div>
         <div className="col-md-9">
-          <h1 className="text-center">All Products</h1>
+          <h1 className="text-center py-5">All Products</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
-              <div key={p._id} className="card m-2" style={{ width: "18rem" }}>
+              <div key={p._id} className="card m-2" style={{ width: "24rem" }}>
                 <img
                   src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
                   alt={p.name}
+                  height={"400px"}
+                  width={"auto"}
                 />
                 <div className="card-body">
                   <h5 className="card-title">{p.name}</h5>
@@ -189,7 +191,7 @@ const AllProducts = () => {
               </div>
             ))}
           </div>
-          <div className="m-2 p-3">
+          <div className="m-2 p-3 text-center">
             {products && products.length < total && (
               <button
                 className="btn btn-warning"
@@ -198,7 +200,7 @@ const AllProducts = () => {
                   setPage(page + 1);
                 }}
               >
-                {loading ? "Loading ..." : "Loadmore"}
+                {loading ? "Loading ..." : "Load More"}
               </button>
             )}
           </div>
