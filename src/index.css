@@ -99,3 +99,43 @@
   justify-content: center;
 }
 
+a{
+  text-decoration: none !important;
+  color: black;
+}
+
+
+.btn.btn-primary{
+  background-color: tomato;
+  border: 1px solid transparent;
+}
+
+.btn.btn-outline-primary {
+  background-color: transparent;
+  color: tomato;
+  border: 1px solid tomato;
+}
+.btn.btn-outline-primary:hover {
+  background-color: tomato;
+  color: white;
+  border: 1px solid white;
+}
+
+.btn.btn-primary:hover {
+  background-color: transparent;
+  color: tomato;
+  border: 1px solid tomato;
+}
+
+.card {
+  padding: 10px;
+}
+.card img{
+  height: 300px;
+  width: auto;
+  object-fit: cover;
+}
+
+.card:hover {
+  border-color: tomato;
+}

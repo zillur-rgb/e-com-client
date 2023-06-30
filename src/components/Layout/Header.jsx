@@ -39,7 +39,7 @@ const Header = () => {
             <Link to="/" className="navbar-brand">
               🛒 e-com
             </Link>
-            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
               <SearchInput />
               <li className="nav-item">
                 <NavLink to="/" className="nav-link ">
@@ -91,9 +91,9 @@ const Header = () => {
                   </li>
                 </>
               ) : (
-                <>
+                <div div className="d-flex align-items-center">
                   <li className="nav-item dropdown">
-                    <NavLink
+                    <Link
                       className="nav-link dropdown-toggle"
                       href="#"
                       role="button"
@@ -101,7 +101,7 @@ const Header = () => {
                       aria-expanded="false"
                     >
                       {auth?.user?.name}
-                    </NavLink>
+                    </Link>
                     <ul className="dropdown-menu">
                       <li>
                         <NavLink
@@ -124,15 +124,15 @@ const Header = () => {
                       </li>
                     </ul>
                   </li>
-                </>
+                  <li className="nav-item">
+                    <Badge count={cart?.length} showZero>
+                      <NavLink to="/cart" className="nav-link">
+                        Cart
+                      </NavLink>
+                    </Badge>
+                  </li>
+                </div>
               )}
-              <li className="nav-item">
-                <Badge count={cart?.length} showZero>
-                  <NavLink to="/cart" className="nav-link">
-                    Cart
-                  </NavLink>
-                </Badge>
-              </li>
             </ul>
           </div>
         </div>

@@ -175,7 +175,7 @@ const AllProducts = () => {
                     More Details
                   </button>
                   <button
-                    className="btn btn-secondary ms-1"
+                    className="btn btn-outline-primary ms-1"
                     onClick={() => {
                       setCart([...cart, p]);
                       localStorage.setItem(

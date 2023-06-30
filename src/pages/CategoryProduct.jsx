@@ -34,41 +34,39 @@ const CategoryProduct = () => {
 
   return (
     <Layout>
-      <div className="container mt-3">
+      <div className=" mt-3">
         <h4 className="text-center">Category - {category?.name}</h4>
         <h6 className="text-center">{products?.length} result found </h6>
         <div className="row">
           <div className="col-md-9 offset-1">
-            <div className="d-flex flex-wrap">
+            <div className="row">
               {products?.map((p) => (
-                <div
-                  className="card m-2"
-                  style={{ width: "18rem" }}
-                  key={p._id}
-                >
-                  <img
-                    src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
-                    className="card-img-top"
-                    alt={p.name}
-                  />
-                  <div className="card-body">
-                    <h5 className="card-title">{p.name}</h5>
-                    <p className="card-text">
-                      {p.description.substring(0, 30)}...
-                    </p>
-                    <p className="card-text"> $ {p.price}</p>
-                    <button
-                      className="btn btn-primary ms-1"
-                      onClick={() => navigate(`/product/${p.slug}`)}
-                    >
-                      More Details
-                    </button>
-                    <button
-                      className="btn btn-secondary ms-1"
-                      onClick={() => handleCart(p)}
-                    >
-                      ADD TO CART
-                    </button>
+                <div className="col-md-4">
+                  <div className="card m-2" key={p._id}>
+                    <img
+                      src={`http://localhost:8080/api/v1/product/product-photo/${p._id}`}
+                      className="card-img-top"
+                      alt={p.name}
+                    />
+                    <div className="card-body">
+                      <h5 className="card-title">{p.name}</h5>
+                      <p className="card-text">
+                        {p.description.substring(0, 30)}...
+                      </p>
+                      <p className="card-text"> $ {p.price}</p>
+                      <button
+                        className="btn btn-primary ms-1"
+                        onClick={() => navigate(`/product/${p.slug}`)}
+                      >
+                        More Details
+                      </button>
+                      <button
+                        className="btn btn-outline-primary ms-1"
+                        onClick={() => handleCart(p)}
+                      >
+                        ADD TO CART
+                      </button>
+                    </div>
                   </div>
                 </div>
               ))}
