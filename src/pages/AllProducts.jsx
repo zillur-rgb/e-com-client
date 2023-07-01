@@ -6,6 +6,7 @@ import { Prices } from "../constants/prices";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import { useCart } from "../context/cart";
+import Spinner from "../components/shared/Spinner";
 
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
@@ -153,43 +154,58 @@ const AllProducts = () => {
         <div className="col-md-9">
           <h1 className="text-center py-5">All Products</h1>
           <div className="d-flex flex-wrap">
-            {products?.map((p) => (
-              <div key={p._id} className="card m-2" style={{ width: "24rem" }}>
-                <img
-                  src={`https://e-com-server-0f13.onrender.com/api/v1/product/product-photo/${p._id}`}
-                  className="card-img-top"
-                  alt={p.name}
-                  height={"400px"}
-                  width={"auto"}
-                />
-                <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">
-                    {p.description.substring(0, 30)}...
-                  </p>
-                  <p className="card-text"> $ {p.price}</p>
-                  <button
-                    className="btn btn-primary ms-1"
-                    onClick={() => navigate(`/product/${p.slug}`)}
-                  >
-                    More Details
-                  </button>
-                  <button
-                    className="btn btn-outline-primary ms-1"
-                    onClick={() => {
-                      setCart([...cart, p]);
-                      localStorage.setItem(
-                        "cart",
-                        JSON.stringify([...cart, p])
-                      );
-                      toast.success("Item Added to cart");
-                    }}
-                  >
-                    ADD TO CART
-                  </button>
-                </div>
+            {loading ? (
+              <div
+                style={{
+                  height: "100vh",
+                  width: "100vw",
+                }}
+              >
+                <Spinner />
               </div>
-            ))}
+            ) : (
+              products?.map((p) => (
+                <div
+                  key={p._id}
+                  className="card m-2"
+                  style={{ width: "24rem" }}
+                >
+                  <img
+                    src={`https://e-com-server-0f13.onrender.com/api/v1/product/product-photo/${p._id}`}
+                    className="card-img-top"
+                    alt={p.name}
+                    height={"400px"}
+                    width={"auto"}
+                  />
+                  <div className="card-body">
+                    <h5 className="card-title">{p.name}</h5>
+                    <p className="card-text">
+                      {p.description.substring(0, 30)}...
+                    </p>
+                    <p className="card-text"> $ {p.price}</p>
+                    <button
+                      className="btn btn-primary ms-1"
+                      onClick={() => navigate(`/product/${p.slug}`)}
+                    >
+                      More Details
+                    </button>
+                    <button
+                      className="btn btn-outline-primary ms-1"
+                      onClick={() => {
+                        setCart([...cart, p]);
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, p])
+                        );
+                        toast.success("Item Added to cart");
+                      }}
+                    >
+                      ADD TO CART
+                    </button>
+                  </div>
+                </div>
+              ))
+            )}
           </div>
           <div className="m-2 p-3 text-center">
             {products && products.length < total && (
