@@ -91,7 +91,7 @@ const CartPage = () => {
             <h4 className="text-center">
               {cart?.length
                 ? `You Have ${cart.length} items in your cart ${
-                    auth?.token ? "" : "please login to checkout"
+                    auth?.token ? "" : "Please login to checkout"
                   }`
                 : " Your Cart Is Empty"}
             </h4>

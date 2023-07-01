@@ -6,6 +6,7 @@ import SearchInput from "../form/searchInput";
 import useCategory from "../../hooks/useCategory";
 import { useCart } from "../../context/cart";
 import { Badge } from "antd";
+import { BiBasket } from "react-icons/bi";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -41,17 +42,17 @@ const Header = () => {
             </Link>
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0 ">
               <SearchInput />
-              <li className="nav-item">
+              <li className="nav-item me-3">
                 <NavLink to="/" className="nav-link ">
                   Home
                 </NavLink>
               </li>
-              <li className="nav-item">
+              <li className="nav-item me-3">
                 <NavLink to="/all-products" className="nav-link ">
                   All Products
                 </NavLink>
               </li>
-              <li className="nav-item dropdown">
+              <li className="nav-item me-3 dropdown">
                 <Link
                   className="nav-link dropdown-toggle"
                   to={"/categories"}
@@ -79,20 +80,31 @@ const Header = () => {
               </li>
               {!auth?.user ? (
                 <>
-                  <li className="nav-item">
+                  <li className="nav-item me-3">
                     <NavLink to="/register" className="nav-link">
                       Register
                     </NavLink>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item me-3">
                     <NavLink to="/login" className="nav-link">
                       Login
                     </NavLink>
                   </li>
+                  <li className="nav-item me-3">
+                    <Badge count={cart?.length} showZero>
+                      <NavLink to="/cart" className="nav-link">
+                        <BiBasket
+                          style={{
+                            fontSize: "24px",
+                          }}
+                        />
+                      </NavLink>
+                    </Badge>
+                  </li>
                 </>
               ) : (
                 <div div className="d-flex align-items-center">
-                  <li className="nav-item dropdown">
+                  <li className="nav-item me-3 dropdown">
                     <Link
                       className="nav-link dropdown-toggle"
                       href="#"
@@ -124,10 +136,14 @@ const Header = () => {
                       </li>
                     </ul>
                   </li>
-                  <li className="nav-item">
+                  <li className="nav-item me-3">
                     <Badge count={cart?.length} showZero>
                       <NavLink to="/cart" className="nav-link">
-                        Cart
+                        <BiBasket
+                          style={{
+                            fontSize: "24px",
+                          }}
+                        />
                       </NavLink>
                     </Badge>
                   </li>
