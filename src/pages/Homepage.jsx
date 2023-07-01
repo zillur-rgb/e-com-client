@@ -19,9 +19,9 @@ const Homepage = () => {
               far-reaching benefits
             </h5>
             <Link to={"/all-products"}>
-              <btn className="btn btn-lg btn-primary">
+              <button className="btn btn-lg btn-primary">
                 Explore Store <AiOutlineArrowRight />
-              </btn>
+              </button>
             </Link>
           </div>
         </div>
